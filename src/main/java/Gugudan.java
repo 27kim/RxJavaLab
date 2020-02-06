@@ -33,7 +33,13 @@ public class Gugudan {
 
         Observable.just(7)
                 .flatMap(num -> Observable.range(1, 9)
-                        .map(input -> num * input)
+                        .map(input -> num + " * " + input + " = " +  num * input)
+                )
+                .subscribe(it -> System.out.println(it));
+
+        Observable.just(7)
+                .flatMap(num -> Observable.range(1, 9)
+                       ,(num , rrr) -> num * rrr
                 )
                 .subscribe(it -> System.out.println(it));
     }
